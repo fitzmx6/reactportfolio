@@ -324,6 +324,9 @@ footer {
   width: auto;
   clear: left; }
 
+#not-found h1 {
+  text-align: center; }
+
 @media screen and (max-width: 460px) {
   .top-header {
     width: 100%;

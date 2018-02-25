@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import portfolioData from '../data/data.json';
 import {
   BrowserRouter as Router,
   Route,
@@ -11,6 +11,7 @@ import CategoryList from './category-list';
 import DetailItem from './detail-item';
 import AboutPage from './about-page';
 import Footer from './footer';
+import NotFound from './not-found';
 
 export class RouterWrapper extends React.Component {
     constructor(props) {
@@ -36,6 +37,8 @@ export class RouterWrapper extends React.Component {
     }
 
     render() {
+        const categories = [portfolioData.web, portfolioData.design, portfolioData.photo];
+
         return (
             <Router onUpdate={this.scrollTop}>
                 <div>
@@ -62,17 +65,26 @@ export class RouterWrapper extends React.Component {
 
                     <Switch>
                         <Route exact path="/web" render={(props) => <CategoryList {...props} navToggle={this.closeNav} />} />
-                        <Route exact path="/web/:webId" component={DetailItem} />
-
                         <Route exact path="/design" render={(props) => <CategoryList {...props} navToggle={this.closeNav} />} />
-                        <Route exact path="/design/:designId" component={DetailItem} />
-
                         <Route exact path="/photo" render={(props) => <CategoryList {...props} navToggle={this.closeNav} />} />
-                        <Route exact path="/photo/:photoId" component={DetailItem} />
-
                         <Route exact path="/about" component={AboutPage}/>
 
-                        <Redirect from="/" to="/web"/>
+                        {
+                            /* 
+                            Routes for all detail pages
+
+                            This loops through each of the portfolio categories 
+                            and then loops through all the projects in a given category
+                            */
+                            categories.map(category => (
+                                category.map(item => (
+                                    <Route exact path={item.url} component={DetailItem}/>
+                                ))
+                            ))
+                        }
+
+                        <Redirect exact from="/" to="/web"/>
+                        <Route path="*" component={NotFound} />
                     </Switch>
 
                     <Footer />
@@ -81,12 +93,5 @@ export class RouterWrapper extends React.Component {
         );
     }
 }
-
-
-RouterWrapper.contextTypes = {
-  router: PropTypes.shape({
-    history: PropTypes.object.isRequired
-  })
-};
 
 export default RouterWrapper;
