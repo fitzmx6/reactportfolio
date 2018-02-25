@@ -324,8 +324,31 @@ footer {
   width: auto;
   clear: left; }
 
-#not-found h1 {
-  text-align: center; }
+#not-found {
+  max-width: 80%;
+  margin: 0 auto; }
+  #not-found img {
+    width: 1000px;
+    max-width: 80%;
+    margin: 0 auto;
+    display: block; }
+  #not-found h3,
+  #not-found h2 {
+    color: #777;
+    text-align: center; }
+  #not-found h2 {
+    font-size: 80px;
+    margin-top: 10px; }
+    @media (max-width: 767px) {
+      #not-found h2 {
+        font-size: 60px; } }
+  #not-found h3 {
+    font-size: 20px;
+    margin-top: 60px; }
+    @media (max-width: 767px) {
+      #not-found h3 {
+        font-size: 16px;
+        margin-top: 20px; } }
 
 @media screen and (max-width: 460px) {
   .top-header {
