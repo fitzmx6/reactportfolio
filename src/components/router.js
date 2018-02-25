@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  BrowerRouter as Router,
+  BrowserRouter as Router,
   Route,
   NavLink,
   Switch,
