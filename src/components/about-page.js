@@ -6,7 +6,7 @@ export default class AboutPage extends React.Component {
         return (
             <div id="sub-content" className="about">
                 <div className="grid-d-12">
-                    <h2>About Cory</h2>
+                    <h2>About</h2>
 
                     <p>Cory Fitzpatrick is a graduate of the University of Massachusetts Dartmouth where he earned a BFA in Graphic Design. He is currently working as a Web Developer at Fitbit. Cory is proficient in HTML5, CSS3, SCSS, Javascript and the Adobe Suite. He continues to expand his range of skills in many other technologies. Cory's workflow currently includes Agile, JIRA, Jenkins and Git. Other interests include marketing, typography, book design and photography.
                     </p>
