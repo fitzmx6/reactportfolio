@@ -324,6 +324,12 @@ footer {
   width: auto;
   clear: left; }
 
+.not-found-bg {
+  background: url(/images/concrete-seamless.png) left top/400px 400px repeat; }
+  @media (max-width: 460px) {
+    .not-found-bg {
+      background: #ccc; } }
+
 #not-found {
   max-width: 80%;
   margin: 0 auto; }

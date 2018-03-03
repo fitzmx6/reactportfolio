@@ -4,7 +4,7 @@ import React from 'react';
 export default class AboutPage extends React.Component {
     render() {
         return (
-            <div className="about">
+            <div id="sub-content" className="about">
                 <div className="grid-d-12">
                     <h2>About Cory</h2>
 
