@@ -243,7 +243,8 @@ nav {
 #sub-content {
   max-width: 80%;
   width: 940px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  overflow: auto; }
   #sub-content * {
     color: #777; }
   #sub-content h2,
@@ -270,6 +271,9 @@ nav {
     display: block;
     width: 940px;
     max-width: 100%; }
+  #sub-content:not(.about) a {
+    display: block;
+    text-align: center; }
   #sub-content a:hover {
     color: #2c2a2a; }
 

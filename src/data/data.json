@@ -9,7 +9,8 @@
                     "../images/web/fitbit-home.jpg",
                     "../images/web/fitbit-ionic.jpg"
                 ],
-                "link": "http://www.fitbit.com/"
+                "link": "http://www.fitbit.com/",
+                "desc": "Cory has worked on many aspects of the Fitbit website. The store, shop pages, product pages, new product launches, holiday campaigns and the blog are just a few of the areas he has worked on. The stack fitbit.com is built on includes HTML5, CSS3, Javascript, Mithril, Lodash and Metalsmith."
             }
         },{
             "name": "Cramer",
@@ -20,8 +21,7 @@
                     "../images/web/cramer-1.jpg",
                     "../images/web/cramer-2.jpg",
                     "../images/web/cramer-3.jpg"
-                ],
-                "link": "http://www.cramer.com/"
+                ]
             }
         }, {
             "name": "EARX",
@@ -52,8 +52,7 @@
             "subContent": {
                 "images": [
                     "../images/web/cyno-home.jpg"
-                ],
-                "link": "http://www.cynosure.com/"
+                ]
             }
         }, {
             "name": "Picosure",
@@ -63,8 +62,7 @@
                 "images": [
                     "../images/web/picosure-1.jpg",
                     "../images/web/picosure-2.jpg"
-                ],
-                "link": "http://www.picosure.com/"
+                ]
             }
         }, {
             "name": "UF Complete",
@@ -83,8 +81,7 @@
             "subContent": {
                 "images": [
                     "../images/web/rps-effect.jpg"
-                ],
-                "link": "http://rpseffectonline.coryfitzpatrick.com/"
+                ]
             }
         }, {
             "name": "Author Danielle Stewart",
@@ -94,8 +91,7 @@
                 "images": [
                     "../images/web/author-ds-1.jpg",
                     "../images/web/author-ds-2.jpg"
-                ],
-                "link": "http://www.authordaniellestewart.com/"
+                ]
             }
         }, {
             "name": "Marsh & McLennan Agency",
@@ -106,8 +102,7 @@
                     "../images/web/mma-1.jpg",
                     "../images/web/mma-2.jpg",
                     "../images/web/mma-3.jpg"
-                ],
-                "link": "http://www.marshmclennanagency.com/"
+                ]
             }
         }, {
             "name": "Evans Open",
@@ -127,8 +122,7 @@
                 "images": [
                     "../images/web/all-creatures-home.jpg",
                     "../images/web/all-creatures-testimonial.jpg"
-                ],
-                "link": "http://www.allcreaturestherapy.coryfitzpatrick.com/"
+                ]
             }
         }
     ],
