@@ -5,7 +5,7 @@ Deploy Process:
 1. heroku login
 2. git add .
 3. git commit {message about commit}
-4. git push heroic master (Heroku Build/Deploy)
+4. git push heroku master (Heroku Build/Deploy)
 5. git push origin master (Github)
 
 ## [Create React App] README
