@@ -1,3 +1,15 @@
+## My README
+
+Deploy Process:
+
+1. heroku login
+2. git add .
+3. git commit {message about commit}
+4. git push heroic master (Heroku Build/Deploy)
+5. git push origin master (Github)
+
+## [Create React App] README
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
