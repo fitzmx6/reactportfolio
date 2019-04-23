@@ -14,7 +14,7 @@ export default class DetailItemContent extends React.Component {
         let subContentVideo;
 
         if (subContent.link) {
-            subContentLink = <a href={subContent.link} target="_blank" rel="noopener noreferrer">Visit The Site: {subContent.link}</a>;
+            subContentLink = <a class="detail-link" href={subContent.link} target="_blank" rel="noopener noreferrer">Visit The Site: {subContent.link}</a>;
         }
 
         if (subContent.desc) {
@@ -35,13 +35,13 @@ export default class DetailItemContent extends React.Component {
                 <div className="grid-d-12">
                     <h2><a href={subContent.link} target="_blank" rel="noopener noreferrer">{detailItem.name}</a></h2>
 
-                    {subContent.images.map(image => (
-                        <img key={image} src={image} alt="" />
-                    ))}
-
                     {subContentVideo}
                     {subContentDesc}
-                    {subContentLink}                  
+                    {subContentLink} 
+
+                    {subContent.images.map(image => (
+                        <img key={image} src={image} alt="" />
+                    ))}                 
                 </div>
             </div>
         );

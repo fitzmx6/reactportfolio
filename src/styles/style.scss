@@ -320,8 +320,8 @@ nav {
 
 	h2,
 	p {
-		margin: 0 auto 40px;
 		text-align: center;
+		margin: 0 auto 20px;
 	}
 
 	h2 {
@@ -354,14 +354,15 @@ nav {
 		max-width: 100%;
 	}
 
-	&:not(.about) a {
+	.detail-link {
 		display: block;
 		text-align: center;
+		margin-bottom: 40px;
 	}
 
 	a:hover {
 		color: #2c2a2a;
-	}		
+	}
 }
 
 .about .grid-d-12 {
