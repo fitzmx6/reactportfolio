@@ -9,7 +9,7 @@
                     "../images/web/fitbit-home.jpg",
                     "../images/web/fitbit-ionic.jpg"
                 ],
-                "link": "http://www.fitbit.com/",
+                "link": "https://www.fitbit.com/",
                 "desc": "Cory has worked on many aspects of the fitbit.com website. The store, shop pages, product pages, new product launches, holiday campaigns and the blog are just a few of the areas he has worked on. The stack fitbit.com is built on includes Javascript, Mithril, HTML5, CSS3, Lodash and Metalsmith."
             }
         },{

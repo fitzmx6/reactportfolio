@@ -9,12 +9,16 @@ export default class DetailItemContent extends React.Component {
         const objectNum = portfolioData[category].findIndex(item => item.url === path);
         const detailItem = portfolioData[category][objectNum];
         const subContent = detailItem.subContent;
+        let subContentTitle;
         let subContentLink;
         let subContentDesc;
         let subContentVideo;
 
         if (subContent.link) {
+            subContentTitle = <h2><a href={subContent.link} target="_blank" rel="noopener noreferrer">{detailItem.name}</a></h2>;
             subContentLink = <a class="detail-link" href={subContent.link} target="_blank" rel="noopener noreferrer">Visit The Site: {subContent.link}</a>;
+        } else {
+            subContentTitle = <h2>{detailItem.name}</h2>;
         }
 
         if (subContent.desc) {
@@ -33,8 +37,7 @@ export default class DetailItemContent extends React.Component {
         return (
             <div id="sub-content">
                 <div className="grid-d-12">
-                    <h2><a href={subContent.link} target="_blank" rel="noopener noreferrer">{detailItem.name}</a></h2>
-
+                    {subContentTitle}
                     {subContentVideo}
                     {subContentDesc}
                     {subContentLink} 
