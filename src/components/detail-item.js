@@ -38,12 +38,14 @@ export default class DetailItemContent extends React.Component {
                 <div className="grid-d-12">
                     {subContentTitle}
                     {subContentDesc}
-                    {subContentVideo}
                     {subContentLink} 
+                    {subContentVideo}
 
-                    {subContent.images.map(image => (
-                        <img key={image} src={image} alt="" />
-                    ))}                 
+                    <div class="images">
+                        {subContent.images.map(image => (
+                            <img key={image} src={image} alt="" />
+                        ))}
+                    </div>               
                 </div>
             </div>
         );
