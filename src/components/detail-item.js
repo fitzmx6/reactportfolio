@@ -26,11 +26,11 @@ export default class DetailItemContent extends React.Component {
         }
 
         if (subContent.videoLink) {
-            subContentVideo = <video preload controls>      
+            subContentVideo = <video preload="true" controls>      
                  <source src={`/video/${subContent.videoLink}.webm`} type='video/webm; codecs="vp8, vorbis"' /> 
                  <source src={`/video/${subContent.videoLink}.theora.ogv`} type='video/ogg; codecs="theora, vorbis"' /> 
                  <source src={`/video/${subContent.videoLink}.mp4`} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-                 This web browser does not support HTML5. Upgrade or view the video at <a href="{subContent.youtubeLink}" title="youtube redirect">{subContent.youtubeLink}</a>     
+                 This web browser does not support HTML5.    
             </video>;
         }
 
@@ -38,8 +38,8 @@ export default class DetailItemContent extends React.Component {
             <div id="sub-content">
                 <div className="grid-d-12">
                     {subContentTitle}
-                    {subContentVideo}
                     {subContentDesc}
+                    {subContentVideo}
                     {subContentLink} 
 
                     {subContent.images.map(image => (

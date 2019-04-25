@@ -139,8 +139,7 @@
                     "../images/design/washed-away-4.jpg"
                 ],
                 "videoLink": "../videos/washed_away_small",
-                "youtubeLink": "http://www.youtube.com/watch?v=X__58M_s_hU",
-                "desc": "Washed away was a typography experiment where a Garamond letter A was sculpted out of sand and videoed while slowly getting washed away by the tide. Images from the video were published in Barbara Brownies book Typed Image. It was a really fun project but tense as well. Contending with the impeding tide made it quite difficult to time properly. This video is embedded locally, using the HTML5 video element."
+                "desc": "Washed away was a typography experiment where a Garamond letter \"A\" was sculpted out of sand and videoed while slowly getting washed away by the tide. Images from the video were published in Barbara Brownies book Typed Image. It was a really fun project but tense as well. Contending with the impeding tide made it quite difficult to time properly. This video is embedded locally, using the HTML5 video element."
             }
         }, {
             "name": "More Than Design",
