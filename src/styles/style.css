@@ -234,7 +234,8 @@ nav {
     color: #2c2a2a;
     font-weight: 500; }
 
-#content, header {
+#content,
+header {
   width: 80%;
   max-width: 1800px;
   margin: 0 auto;
