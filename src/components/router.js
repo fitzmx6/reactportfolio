@@ -46,7 +46,7 @@ export class RouterWrapper extends React.Component {
                         <div className="grid-d-12">
                             <div className="top-header">
                                 <div id="logo">
-                                    <h1><NavLink to={"/web"} onClick={this.closeNav}>Cory Fitzpatrick | Software Engineer</NavLink></h1>
+                                    <h1><NavLink to={"/web"} onClick={this.closeNav}>Cory Fitzpatrick | Web Developer</NavLink></h1>
                                 </div>
 
                                 <div className="mobile-nav-link" onClick={this.mobileNavToggle}></div>
