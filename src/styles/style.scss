@@ -369,19 +369,23 @@ nav {
 	a:hover {
 		color: #2c2a2a;
 	}
-}
 
-.about .grid-d-12 {
-	a {
-		text-decoration: underline;
-	}
+	&.about .grid-d-12 {
+		a {
+			text-decoration: underline;
+		}
 
-	> a {
-		text-align: center;
-		display: block;
+		> a {
+			text-align: center;
+			display: block;
 
-		&:first-of-type {
-			margin-bottom: 10px;
+			&:first-of-type {
+				margin-bottom: 10px;
+			}
+		}
+
+		p {
+			margin-bottom: 20px;
 		}
 	}
 }

@@ -281,15 +281,15 @@ nav {
     margin-top: 20px; }
   #sub-content a:hover {
     color: #2c2a2a; }
-
-.about .grid-d-12 a {
-  text-decoration: underline; }
-
-.about .grid-d-12 > a {
-  text-align: center;
-  display: block; }
-  .about .grid-d-12 > a:first-of-type {
-    margin-bottom: 10px; }
+  #sub-content.about .grid-d-12 a {
+    text-decoration: underline; }
+  #sub-content.about .grid-d-12 > a {
+    text-align: center;
+    display: block; }
+    #sub-content.about .grid-d-12 > a:first-of-type {
+      margin-bottom: 10px; }
+  #sub-content.about .grid-d-12 p {
+    margin-bottom: 20px; }
 
 .grid-item {
   width: 30%;
