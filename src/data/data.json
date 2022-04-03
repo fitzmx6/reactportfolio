@@ -9,8 +9,7 @@
                     "../images/web/fitbit-home.jpg",
                     "../images/web/fitbit-ionic.jpg"
                 ],
-                "link": "https://www.fitbit.com/",
-                "desc": "Cory has worked on many aspects of the fitbit.com website. The store, shop pages, product pages, new product launches, holiday campaigns and the blog are just a few of the areas he has worked on. The stack fitbit.com is built on includes Javascript, Mithril, HTML5, CSS3, Lodash and Metalsmith."
+                "desc": "Software Engineer (2019 - Current): Cory is currently a member of the core tools team at Google + Fitbit. This team builds and maintains an internal support tool and the backend that powers it. Customer support agents use this tool to diagnose issues with customers' Fitbit devices. The work includes the writing and maintaining of backend apis as well as adding new features to and maintaining the front-end Ember app.<br><br>Front-end Engineer (2015 - 2019): Cory has worked on many aspects of the fitbit.com website. The store, shop pages, product pages, new product launches, holiday campaigns and the blog are just a few of the areas he has worked on. The stack fitbit.com is built on includes Javascript, Mithril, HTML5, CSS3, Lodash and Metalsmith."
             }
         },{
             "name": "Cramer",

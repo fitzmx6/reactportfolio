@@ -22,7 +22,7 @@ export default class DetailItemContent extends React.Component {
         }
 
         if (subContent.desc) {
-            subContentDesc = <p>{subContent.desc}</p>;
+            subContentDesc = <p dangerouslySetInnerHTML={{__html: subContent.desc}}></p>;
         }
 
         if (subContent.videoLink) {
