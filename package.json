@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "ajv": "^6.10.0",
+    "express": "^5.1.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
