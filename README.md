@@ -2,11 +2,12 @@
 
 Deploy Process:
 
-1. `heroku login`
-2. `git add .`
-3. `git commit` {message about commit}
-4. `git push heroku master` (Heroku Build/Deploy)
-5. `git push origin master` (GitHub)
+1. `brew install heroku/brew/heroku`
+2. `heroku login`
+3. `git add .`
+4. `git commit` {message about commit}
+5. `git push heroku master` (Heroku Build/Deploy)
+6. `git push origin master` (GitHub)
 
 ## [Create React App] README
 
