@@ -3,12 +3,12 @@
         {
             "name": "J&J",
             "url": "/dev/jj",
-            "thumbPath": "../images/dev/vpp-1-thumb.jpg",
+            "thumbPath": "../images/dev/vi-1-thumb.jpg",
             "subContent": {
                 "images": [
+                    "../images/dev/vi-1.jpg",
                     "../images/dev/vpp-1.jpg",
-                    "../images/dev/vpp-2.jpg",
-                    "../images/dev/vi-1.jpg"
+                    "../images/dev/vpp-2.jpg"
                 ],
                 "desc": "Software Tech Lead (2023 - Current): Cory is currently serving as a Software Tech Lead within the J&J MedTech division, overseeing multiple teams and offering technical guidance. He leads a team that is building an iOS app designed to connect to a medical device, contributing to the development of innovative solutions within the MedTech space. Although his recent experience has centered on backend API development in Java, his current role is focused primarily on team leadership and maintaining technical alignment. In his position, Cory also leads the Sustaining team, a crucial part of the VELYS Digital ecosystem responsible for maintaining the security and stability of services and the codebase. His team focuses on addressing bugs, updating frameworks and dependencies proactively, and ensuring the overall security and mitigation of vulnerabilities. Cory actively contributes to onboarding new customers, facilitating a seamless transition into the VELYS Digital ecosystem, and provides top-notch support to the Product Support team, diligently resolving customer issues and delivering exceptional assistance."
             }
