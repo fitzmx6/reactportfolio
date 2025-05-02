@@ -37,7 +37,7 @@ export class RouterWrapper extends React.Component {
     }
 
     render() {
-        const categories = [portfolioData.web, portfolioData.design, portfolioData.photo];
+        const categories = [portfolioData.dev, portfolioData.design, portfolioData.photo];
 
         return (
             <Router onUpdate={this.scrollTop}>
@@ -46,7 +46,7 @@ export class RouterWrapper extends React.Component {
                         <div className="grid-d-12">
                             <div className="top-header">
                                 <div id="logo">
-                                    <h1><NavLink to={"/web"} onClick={this.closeNav}>Cory Fitzpatrick | Software Tech Lead</NavLink></h1>
+                                    <h1><NavLink to={"/dev"} onClick={this.closeNav}>Cory Fitzpatrick | Software Tech Lead</NavLink></h1>
                                 </div>
 
                                 <div className="mobile-nav-link" onClick={this.mobileNavToggle}></div>
@@ -54,7 +54,7 @@ export class RouterWrapper extends React.Component {
 
                             <nav>
                                 <ul>
-                                    <li><NavLink to={"/web"} onClick={this.closeNav}>Web</NavLink></li>
+                                    <li><NavLink to={"/dev"} onClick={this.closeNav}>Dev</NavLink></li>
                                     <li><NavLink to={"/design"} onClick={this.closeNav}>Design</NavLink></li>
                                     <li><NavLink to={"/photo"} onClick={this.closeNav}>Photo</NavLink></li>
                                     <li><NavLink to={"/about"} onClick={this.closeNav}>About</NavLink></li>
@@ -64,7 +64,7 @@ export class RouterWrapper extends React.Component {
                     </header>
 
                     <Switch>
-                        <Route exact path="/web" render={(props) => <CategoryList {...props} navToggle={this.closeNav} />} />
+                        <Route exact path="/dev" render={(props) => <CategoryList {...props} navToggle={this.closeNav} />} />
                         <Route exact path="/design" render={(props) => <CategoryList {...props} navToggle={this.closeNav} />} />
                         <Route exact path="/photo" render={(props) => <CategoryList {...props} navToggle={this.closeNav} />} />
                         <Route exact path="/about" component={AboutPage}/>
@@ -83,7 +83,7 @@ export class RouterWrapper extends React.Component {
                             ))
                         }
 
-                        <Redirect exact from="/" to="/web"/>
+                        <Redirect exact from="/" to="/dev"/>
                         <Route path="*" component={NotFound} />
                     </Switch>
 
