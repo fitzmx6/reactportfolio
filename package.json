@@ -13,8 +13,13 @@
   },
   "scripts": {
     "start": "serve -s build",
-    "build": "react-scripts build",
+    "start-dev": "serve -s build && watch-css",
+    "build": "npm run build-css && react-scripts build",
+    "build-css": "sass src/styles/style.scss src/styles/style.css",
     "dev": "react-scripts start",
     "heroku-postbuild": "npm run build"
+  },
+  "devDependencies": {
+    "sass": "^1.87.0"
   }
 }
