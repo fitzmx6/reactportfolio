@@ -13,6 +13,10 @@
   "scripts": {
     "start": "serve -s build",
     "build": "react-scripts build",
-    "dev": "react-scripts start"
+    "dev": "react-scripts start",
+    "heroku-postbuild": "npm run build"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
   }
 }
