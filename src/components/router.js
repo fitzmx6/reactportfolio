@@ -84,6 +84,8 @@ export class RouterWrapper extends React.Component {
                         }
 
                         <Redirect exact from="/" to="/dev"/>
+                        { /*This is to handle any indexed /web search results*/ }
+                        <Redirect exact from="/web" to="/dev"/>
                         <Route path="*" component={NotFound} />
                     </Switch>
 
