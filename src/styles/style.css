@@ -455,6 +455,9 @@ footer a:hover {
     margin-top: 20px;
   }
 }
+#not-found a {
+  text-decoration: underline;
+}
 
 @media screen and (max-width: 460px) {
   .top-header {
