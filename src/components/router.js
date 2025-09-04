@@ -73,7 +73,7 @@ export class RouterWrapper extends React.Component {
                             /* 
                                 Routes for all detail pages
 
-                                This loops through each of the portfolio categories 
+                                This loops through each of the portfolio categories
                                 and then loops through all the projects in a given category
                             */
                             categories.map(category => (
@@ -83,9 +83,14 @@ export class RouterWrapper extends React.Component {
                             ))
                         }
 
-                        <Redirect exact from="/" to="/dev"/>
+                        <Route exact path="/">
+                            <Redirect to="/dev" />
+                        </Route>
                         { /*This is to handle any indexed /web search results*/ }
-                        <Redirect exact from="/web" to="/dev"/>
+                        <Route exact path="/web">
+                            <Redirect to="/dev" />
+                        </Route>
+
                         <Route path="*" component={NotFound} />
                     </Switch>
 
