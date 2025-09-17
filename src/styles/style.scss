@@ -302,7 +302,8 @@ nav {
 }
 
 #content,
-header {
+header,
+footer {
 	width: 80%;
 	max-width: 1800px;
     margin: 0 auto;
@@ -404,16 +405,13 @@ header {
 }
 
 footer {
-	width: 100%;
 	padding: 20px 0;
 	font-family: Nexa,"Berthold Akzidenz Grotesk BE", Helvetica, verdana, "sans-serif";
-	float: left;
 	font-size: 1.2em;
 
 	ul {
 		list-style-type: none;
 		max-width: 80%;
-		margin:0 auto;
 	}
 
 	li {
