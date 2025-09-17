@@ -7,7 +7,7 @@ const isLocalhost = Boolean(
     window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/)
 );
 
-export default function register(): void {
+export default function register() {
     if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
         const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
@@ -26,7 +26,7 @@ export default function register(): void {
     }
 }
 
-function registerValidSW(swUrl: string): void {
+function registerValidSW(swUrl) {
     navigator.serviceWorker.register(swUrl)
         .then(registration => {
             registration.onupdatefound = () => {
@@ -49,7 +49,7 @@ function registerValidSW(swUrl: string): void {
         });
 }
 
-function checkValidServiceWorker(swUrl: string): void {
+function checkValidServiceWorker(swUrl) {
     fetch(swUrl)
         .then(response => {
             const contentType = response.headers.get('content-type');
@@ -69,7 +69,7 @@ function checkValidServiceWorker(swUrl: string): void {
         });
 }
 
-export function unregister(): void {
+export function unregister() {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.ready.then(registration => {
             registration.unregister();
