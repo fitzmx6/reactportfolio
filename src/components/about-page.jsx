@@ -1,6 +1,5 @@
 import React from 'react';
 
-// About Page Component
 export default class AboutPage extends React.Component {
     render() {
         return (

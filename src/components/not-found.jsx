@@ -1,6 +1,5 @@
 import React from 'react';
 
-// About Page Component
 export default class NotFound extends React.Component {
 	componentDidMount() {
 		document.body.className = 'not-found-bg';

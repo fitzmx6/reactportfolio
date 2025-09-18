@@ -1,7 +1,6 @@
 import React from 'react';
 import portfolioData from '../data/data.json';
 
-// Detail Page Component
 export default class DetailItemContent extends React.Component {
     render() {
         const path = this.props.location.pathname;

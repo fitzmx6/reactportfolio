@@ -2,7 +2,6 @@ import React from 'react';
 import portfolioData from '../data/data.json';
 import { NavLink } from 'react-router-dom';
 
-// Category List View Component
 export default class CategoryList extends React.Component {
     render() {
         let url = this.props.location.pathname;
