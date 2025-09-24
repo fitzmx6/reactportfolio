@@ -30,7 +30,7 @@ header {
   font-size: 1.2em;
   color: #777;
   font-weight: normal;
-  font-family: Nexa, "Berthold Akzidenz Grotesk BE", Helvetica, verdana, "sans-serif";
+  font-family: Nexa, "Berthold Akzidenz Grotesk BE", Helvetica, verdana, sans-serif;
 }
 #logo h1 {
   margin-right: 6px;
@@ -72,7 +72,7 @@ header {
 nav {
   float: right;
   font-weight: normal;
-  font-family: Nexa, "Berthold Akzidenz Grotesk BE", Helvetica, verdana, "sans-serif";
+  font-family: Nexa, "Berthold Akzidenz Grotesk BE", Helvetica, verdana, sans-serif;
 }
 @media screen and (max-width: 900px) {
   nav {
@@ -124,7 +124,7 @@ nav a:hover {
   color: #2c2a2a;
 }
 nav .active {
-  font-family: Nexa, "Berthold Akzidenz Grotesk BE", Helvetica, verdana, "sans-serif";
+  font-family: Nexa, "Berthold Akzidenz Grotesk BE", Helvetica, verdana, sans-serif;
   color: #2c2a2a;
   font-weight: 500;
 }
@@ -281,7 +281,7 @@ nav .active {
 
 footer {
   padding: 20px 0;
-  font-family: Nexa, "Berthold Akzidenz Grotesk BE", Helvetica, verdana, "sans-serif";
+  font-family: Nexa, "Berthold Akzidenz Grotesk BE", Helvetica, verdana, sans-serif;
   font-size: 1.2em;
 }
 footer ul {
@@ -315,7 +315,7 @@ footer a:hover {
 }
 
 .not-found-bg {
-  background: url(../../public/images/concrete-seamless.png) left top/400px 400px repeat;
+  background: url(/images/concrete-seamless.png) left top/400px 400px repeat;
 }
 @media (max-width: 460px) {
   .not-found-bg {
@@ -401,7 +401,7 @@ a:active {
 
 div {
   height: auto;
-  font-family: Nexa, "Berthold Akzidenz Grotesk BE", Helvetica, verdana, "sans-serif";
+  font-family: Nexa, "Berthold Akzidenz Grotesk BE", Helvetica, verdana, sans-serif;
 }
 
 * {
@@ -467,5 +467,3 @@ footer {
   -moz-box-shadow: 1px 1px 1px 1px rgba(197, 197, 197, 0.5);
   box-shadow: 1px 1px 1px 1px rgba(197, 197, 197, 0.5);
 }
-
-/*# sourceMappingURL=style.css.map */

@@ -15,7 +15,7 @@ export default class DetailItemContent extends React.Component {
 
         if (subContent.link) {
             subContentTitle = <h2><a href={subContent.link} target="_blank" rel="noopener noreferrer">{detailItem.name}</a></h2>;
-            subContentLink = <a class="detail-link" href={subContent.link} target="_blank" rel="noopener noreferrer">Visit The Site: {subContent.link}</a>;
+            subContentLink = <a className="detail-link" href={subContent.link} target="_blank" rel="noopener noreferrer">Visit The Site: {subContent.link}</a>;
         } else {
             subContentTitle = <h2>{detailItem.name}</h2>;
         }
@@ -26,8 +26,8 @@ export default class DetailItemContent extends React.Component {
 
         if (subContent.videoLink) {
             subContentVideo = <video preload="true" controls>      
-                 <source src={`/video/${subContent.videoLink}.webm`} type='video/webm; codecs="vp8, vorbis"' /> 
-                 <source src={`/video/${subContent.videoLink}.mp4`} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+                 <source src={`${subContent.videoLink}.webm`} type='video/webm; codecs="vp8, vorbis"' />
+                 <source src={`${subContent.videoLink}.mp4`} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
                  This web browser does not support HTML5.    
             </video>;
         }
@@ -40,7 +40,7 @@ export default class DetailItemContent extends React.Component {
                     {subContentLink} 
                     {subContentVideo}
 
-                    <div class="images">
+                    <div className="images">
                         {subContent.images.map(image => (
                             <img key={image} src={image} alt="" />
                         ))}
