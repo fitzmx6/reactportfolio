@@ -54,12 +54,7 @@ const ALL_CATEGORIES = [
     portfolioData.photo
 ];
 
-function App() {
-    useEffect(() => {
-        // Initialize Google Analytics on mount
-        initGA();
-    }, []);
-
+export function AppContent() {
     const detailRoutes = useMemo(() => {
         return ALL_CATEGORIES.flatMap((category) =>
             category.items.map((item) => (
@@ -73,31 +68,42 @@ function App() {
     }, []);
 
     return (
-        <Router>
-            <div>
-                <RouteChangeTracker />
-                <HashScrollHandler />
-                <Header />
+        <div>
+            <RouteChangeTracker />
+            <HashScrollHandler />
+            <Header />
 
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/ai" element={<CategoryList />} />
-                    <Route path="/dev" element={<CategoryList />} />
-                    <Route path="/design" element={<CategoryList />} />
-                    <Route path="/photo" element={<CategoryList />} />
-                    <Route path="/about" element={<AboutPage />} />
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/ai" element={<CategoryList />} />
+                <Route path="/dev" element={<CategoryList />} />
+                <Route path="/design" element={<CategoryList />} />
+                <Route path="/photo" element={<CategoryList />} />
+                <Route path="/about" element={<AboutPage />} />
 
-                    {/* Detail pages for all portfolio items */}
-                    {detailRoutes}
+                {/* Detail pages for all portfolio items */}
+                {detailRoutes}
 
-                    {/* Handle any indexed /web search results */}
-                    <Route path="/web" element={<Navigate to="/" replace />} />
+                {/* Handle any indexed /web search results */}
+                <Route path="/web" element={<Navigate to="/" replace />} />
 
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
+                <Route path="*" element={<NotFound />} />
+            </Routes>
 
-                <Footer />
-            </div>
+            <Footer />
+        </div>
+    );
+}
+
+function App() {
+    useEffect(() => {
+        // Initialize Google Analytics on mount
+        initGA();
+    }, []);
+
+    return (
+        <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+            <AppContent />
         </Router>
     );
 }

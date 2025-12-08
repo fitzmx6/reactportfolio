@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import App from './app';
+import App, { AppContent } from './app';
 
 /* global describe, test, expect, beforeEach */
 
@@ -15,8 +15,8 @@ Element.prototype.scrollIntoView = jest.fn();
 
 const renderAppWithRouter = (initialEntries = ['/']) => {
   return render(
-    <MemoryRouter initialEntries={initialEntries}>
-      <App />
+    <MemoryRouter initialEntries={initialEntries} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <AppContent />
     </MemoryRouter>
   );
 };
@@ -44,6 +44,46 @@ describe('App Component', () => {
     expect(screen.getByText('Email: coryartfitz@gmail.com')).toBeInTheDocument();
     expect(screen.getByText('Cory Fitzpatrick')).toBeInTheDocument();
     expect(screen.getByText(`Copyright © ${new Date().getFullYear()}`)).toBeInTheDocument();
+  });
+
+  test('processes pathname correctly', () => {
+    renderAppWithRouter(['/dev/']);
+    expect(screen.getByText('J&J')).toBeInTheDocument();
+  });
+
+  test('scrolls to hash element', async () => {
+    // Mock scrollIntoView
+    const scrollIntoViewMock = jest.fn();
+    window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
+
+    // Create a dummy element to scroll to
+    const div = document.createElement('div');
+    div.id = 'test-hash';
+    document.body.appendChild(div);
+
+    renderAppWithRouter(['/#test-hash']);
+
+    // Wait for the effect to run (it has a timeout)
+    await new Promise(resolve => setTimeout(resolve, 200));
+
+    expect(scrollIntoViewMock).toHaveBeenCalledWith({ behavior: 'smooth' });
+
+    // Cleanup
+    document.body.removeChild(div);
+  });
+
+  test('handles hash element that does not exist', async () => {
+    // Mock scrollIntoView
+    const scrollIntoViewMock = jest.fn();
+    window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
+
+    renderAppWithRouter(['/#non-existent-hash']);
+
+    // Wait for the effect to run (it has a timeout)
+    await new Promise(resolve => setTimeout(resolve, 200));
+
+    // scrollIntoView should NOT be called if element doesn't exist
+    expect(scrollIntoViewMock).not.toHaveBeenCalled();
   });
 
   test('renders chatbot page at root path', () => {
@@ -83,7 +123,7 @@ describe('App Component', () => {
   test('renders about page', () => {
     renderAppWithRouter(['/about']);
 
-    expect(screen.getByText('About')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'About' })).toBeInTheDocument();
     expect(screen.getByText('Cory Fitzpatrick | Software Tech Lead')).toBeInTheDocument();
   });
 

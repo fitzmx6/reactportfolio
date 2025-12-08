@@ -1,29 +1,36 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import DetailItemContent from './detail-item';
 
 /* global describe, test, expect */
 
-const mockProps = {
-  location: { pathname: '/dev/jj' }
+const renderWithRouter = (path) => {
+  return render(
+    <MemoryRouter initialEntries={[path]} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <Routes>
+        <Route path="/:category/:item" element={<DetailItemContent />} />
+      </Routes>
+    </MemoryRouter>
+  );
 };
 
 describe('DetailItemContent Component', () => {
   test('renders detail item for dev category', () => {
-    render(<DetailItemContent {...mockProps} />);
+    renderWithRouter('/dev/jj');
 
     expect(screen.getByText('J&J')).toBeInTheDocument();
   });
 
   test('renders description when available', () => {
-    render(<DetailItemContent {...mockProps} />);
+    renderWithRouter('/dev/jj');
 
     expect(screen.getByText(/Software Tech Lead/)).toBeInTheDocument();
     expect(screen.getByText(/J&J MedTech division/)).toBeInTheDocument();
   });
 
   test('renders images from subContent', () => {
-    const { container } = render(<DetailItemContent {...mockProps} />);
+    const { container } = renderWithRouter('/dev/jj');
 
     const images = container.querySelectorAll('img');
     expect(images.length).toBeGreaterThan(0);
@@ -35,7 +42,7 @@ describe('DetailItemContent Component', () => {
   });
 
   test('renders title as plain text', () => {
-    render(<DetailItemContent {...mockProps} />);
+    renderWithRouter('/dev/jj');
 
     const heading = screen.getByRole('heading', { level: 2 });
     expect(heading).toBeInTheDocument();
@@ -43,11 +50,7 @@ describe('DetailItemContent Component', () => {
   });
 
   test('renders video when videoLink is present', () => {
-    const propsWithVideo = {
-      location: { pathname: '/design/washed-away' }
-    };
-
-    render(<DetailItemContent {...propsWithVideo} />);
+    renderWithRouter('/design/washed-away');
 
     const video = screen.getByText(/This web browser does not support HTML5/);
     expect(video.closest('video')).toBeInTheDocument();
@@ -56,7 +59,7 @@ describe('DetailItemContent Component', () => {
   });
 
   test('has correct container structure', () => {
-    const { container } = render(<DetailItemContent {...mockProps} />);
+    const { container } = renderWithRouter('/dev/jj');
 
     expect(container.querySelector('#sub-content')).toBeInTheDocument();
     expect(container.querySelector('.grid-d-12')).toBeInTheDocument();
@@ -64,66 +67,54 @@ describe('DetailItemContent Component', () => {
   });
 
   test('finds correct item from different categories', () => {
-    const designProps = {
-      location: { pathname: '/design/washed-away' }
-    };
-
-    render(<DetailItemContent {...designProps} />);
+    renderWithRouter('/design/washed-away');
 
     expect(screen.getByText('Washed Away')).toBeInTheDocument();
   });
 
   test('finds correct item from photo category', () => {
-    const photoProps = {
-      location: { pathname: '/photo/garden' }
-    };
-
-    render(<DetailItemContent {...photoProps} />);
+    renderWithRouter('/photo/garden');
 
     expect(screen.getByText('Garden')).toBeInTheDocument();
   });
 
   test('renders HTML content safely with dangerouslySetInnerHTML', () => {
-    const propsWithHtml = {
-      location: { pathname: '/dev/google-fitbit' }
-    };
-
-    render(<DetailItemContent {...propsWithHtml} />);
+    renderWithRouter('/dev/google-fitbit');
 
     expect(screen.getByText(/Core Tools team at Google \+ Fitbit/)).toBeInTheDocument();
   });
 
   test('parses path correctly to find category and item', () => {
-    const complexPath = {
-      location: { pathname: '/dev/marsh-mcLennan-agency' }
-    };
-
-    render(<DetailItemContent {...complexPath} />);
+    renderWithRouter('/dev/marsh-mcLennan-agency');
 
     expect(screen.getByText('Marsh & McLennan Agency')).toBeInTheDocument();
   });
 
   test('handles items without description', () => {
-    const propsNoDesc = {
-      location: { pathname: '/dev/earx' }
-    };
-
-    render(<DetailItemContent {...propsNoDesc} />);
+    renderWithRouter('/dev/earx');
 
     expect(screen.getByText('EARX')).toBeInTheDocument();
   });
 
   test('video sources have correct attributes', () => {
-    const propsWithVideo = {
-      location: { pathname: '/design/washed-away' }
-    };
-
-    const { container } = render(<DetailItemContent {...propsWithVideo} />);
+    const { container } = renderWithRouter('/design/washed-away');
 
     const webmSource = container.querySelector('source[type*="webm"]');
     const mp4Source = container.querySelector('source[type*="mp4"]');
 
     expect(webmSource).toHaveAttribute('src', '/videos/washed_away_small.webm');
     expect(mp4Source).toHaveAttribute('src', '/videos/washed_away_small.mp4');
+  });
+
+  test('shows "Item not found" when category does not exist', () => {
+    renderWithRouter('/invalid-category/some-item');
+
+    expect(screen.getByText('Item not found')).toBeInTheDocument();
+  });
+
+  test('shows "Item not found" when item does not exist in valid category', () => {
+    renderWithRouter('/dev/non-existent-item');
+
+    expect(screen.getByText('Item not found')).toBeInTheDocument();
   });
 });

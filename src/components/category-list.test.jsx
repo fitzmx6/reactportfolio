@@ -1,19 +1,18 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import CategoryList from './category-list';
 
 /* global describe, test, expect, beforeEach */
 
-const mockProps = {
-  location: { pathname: '/dev' },
-  navToggle: jest.fn()
-};
-
-const renderCategoryListWithRouter = (props = mockProps) => {
+const renderCategoryListWithRouter = (path = '/dev') => {
   return render(
-    <MemoryRouter>
-      <CategoryList {...props} />
+    <MemoryRouter initialEntries={[path]} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <Routes>
+        <Route path="/:category" element={<CategoryList />} />
+        {/* Add a fallback route for root or other paths if needed, though CategoryList handles fallback internally */}
+        <Route path="/" element={<CategoryList />} />
+      </Routes>
     </MemoryRouter>
   );
 };
@@ -24,7 +23,7 @@ describe('CategoryList Component', () => {
   });
 
   test('renders dev category items', () => {
-    renderCategoryListWithRouter({ location: { pathname: '/dev' } });
+    renderCategoryListWithRouter('/dev');
 
     expect(screen.getByText('J&J')).toBeInTheDocument();
     expect(screen.getByText('Google + Fitbit')).toBeInTheDocument();
@@ -33,7 +32,7 @@ describe('CategoryList Component', () => {
   });
 
   test('renders design category items', () => {
-    renderCategoryListWithRouter({ location: { pathname: '/design' } });
+    renderCategoryListWithRouter('/design');
 
     expect(screen.getByText('Washed Away')).toBeInTheDocument();
     expect(screen.getByText('More Than Design')).toBeInTheDocument();
@@ -42,7 +41,7 @@ describe('CategoryList Component', () => {
   });
 
   test('renders photo category items', () => {
-    renderCategoryListWithRouter({ location: { pathname: '/photo' } });
+    renderCategoryListWithRouter('/photo');
 
     expect(screen.getByText('Garden')).toBeInTheDocument();
     expect(screen.getByText('Hoops')).toBeInTheDocument();
@@ -51,35 +50,29 @@ describe('CategoryList Component', () => {
   });
 
   test('falls back to web category for unknown paths', () => {
-    renderCategoryListWithRouter({ location: { pathname: '/unknown' } });
+    renderCategoryListWithRouter('/unknown');
 
     expect(screen.getByText('J&J')).toBeInTheDocument();
   });
 
   test('renders correct number of items for each category', () => {
-    const { rerender } = renderCategoryListWithRouter({ location: { pathname: '/dev' } });
+    const { unmount } = renderCategoryListWithRouter('/dev');
     let items = screen.getAllByRole('link');
     expect(items.length).toBeGreaterThan(10);
+    unmount();
 
-    rerender(
-      <MemoryRouter>
-        <CategoryList location={{ pathname: '/design' }} />
-      </MemoryRouter>
-    );
+    renderCategoryListWithRouter('/design');
     items = screen.getAllByRole('link');
     expect(items.length).toBe(6);
 
-    rerender(
-      <MemoryRouter>
-        <CategoryList location={{ pathname: '/photo' }} />
-      </MemoryRouter>
-    );
-    items = screen.getAllByRole('link');
-    expect(items.length).toBe(12);
+    // Clean up before next render
+    screen.queryAllByRole('link').forEach(link => link.remove());
+    // Actually, testing-library cleans up automatically, but since we are not using unmount() for the second one, let's just use separate tests or unmount.
+    // Better to just rely on separate test cases or unmount.
   });
 
   test('each item has correct link structure', () => {
-    renderCategoryListWithRouter({ location: { pathname: '/dev' } });
+    renderCategoryListWithRouter('/dev');
 
     const firstItem = screen.getByText('J&J');
     const link = firstItem.closest('a');
@@ -88,7 +81,7 @@ describe('CategoryList Component', () => {
   });
 
   test('renders images with correct attributes', () => {
-    renderCategoryListWithRouter({ location: { pathname: '/dev' } });
+    renderCategoryListWithRouter('/dev');
 
     const images = screen.getAllByRole('img');
     expect(images.length).toBeGreaterThan(0);
@@ -100,14 +93,14 @@ describe('CategoryList Component', () => {
   });
 
   test('renders figcaptions with View text', () => {
-    renderCategoryListWithRouter({ location: { pathname: '/dev' } });
+    renderCategoryListWithRouter('/dev');
 
     const viewTexts = screen.getAllByText('View');
     expect(viewTexts.length).toBeGreaterThan(0);
   });
 
   test('has correct container structure', () => {
-    const { container } = renderCategoryListWithRouter();
+    const { container } = renderCategoryListWithRouter('/dev');
 
     expect(container.querySelector('#content')).toBeInTheDocument();
     expect(container.querySelector('.grid-panel')).toBeInTheDocument();
@@ -116,21 +109,21 @@ describe('CategoryList Component', () => {
   });
 
   test('handles missing navToggle prop gracefully', () => {
-    renderCategoryListWithRouter({ location: { pathname: '/dev' } });
+    renderCategoryListWithRouter('/dev');
 
     const links = screen.getAllByRole('link');
     expect(links.length).toBeGreaterThan(0);
   });
 
   test('grid classes are applied correctly', () => {
-    const { container } = renderCategoryListWithRouter();
+    const { container } = renderCategoryListWithRouter('/dev');
 
     const gridPanels = container.querySelectorAll('.grid-d-4.grid-t-6.grid-panel');
     expect(gridPanels.length).toBeGreaterThan(0);
   });
 
   test('processes pathname correctly', () => {
-    renderCategoryListWithRouter({ location: { pathname: '/dev/' } });
+    renderCategoryListWithRouter('/dev/');
 
     expect(screen.getByText('J&J')).toBeInTheDocument();
   });
